@@ -24,4 +24,10 @@
     <ProjectReference Include="..\WarehouseManagementSystem.Business\WarehouseManagementSystem.Business.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="warehouse.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

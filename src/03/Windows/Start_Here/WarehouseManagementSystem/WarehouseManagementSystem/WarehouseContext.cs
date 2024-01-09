@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Warehouse.Data.SQLite;
 
 namespace WarehouseManagementSystem
 {
@@ -11,7 +12,7 @@ namespace WarehouseManagementSystem
         : DbContext
     {
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<Warehouse> Warehouses { get; set; }
+        public DbSet<Warehouse.Data.SQLite.Warehouse> Warehouses { get; set; }
         public DbSet<Item> Items { get; set; }
         public DbSet<LineItem> LineItems { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -22,12 +23,14 @@ namespace WarehouseManagementSystem
             optionsBuilder)
         {
             // MOVE TO A SECURE PLACE!!!!
+            /*
             var connectionString =
                 "Data Source=(LocalDB)\\MSSQLLocalDB;" +
                 "Initial Catalog=WarehouseManagement;" +
                 "Integrated Security=True;";
-
-            optionsBuilder.UseSqlServer(connectionString);
+            */
+            var connectionString = "Data Source=warehouse.db";
+            optionsBuilder.UseSqlite(connectionString);
         }
     }
 }

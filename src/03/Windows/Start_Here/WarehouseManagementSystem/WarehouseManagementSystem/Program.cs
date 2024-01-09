@@ -1,6 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WarehouseManagementSystem;
 
+
+using var context = new WarehouseContext();
+foreach(var order in context.Orders)
+{
+    Console.WriteLine(order.Id) ;
+}
+
+
+
+/*
 Customer filip = new()
 {
     Id = Guid.NewGuid(),
@@ -52,6 +62,9 @@ context.Database.Migrate();
 
 context.Orders.Add(order);
 context.SaveChanges();
+
+*/
+
 
 //using Microsoft.EntityFrameworkCore;
 //using Warehouse.Data.SQLite;
